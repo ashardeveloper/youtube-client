@@ -21,7 +21,7 @@ const Home = ({ type }) => {
   }, [type]);
 
 
- if (!Array.isArray(videos)) {
+  if (videos.length === 0) {
     return <div>Loading...</div>;
   }
 
