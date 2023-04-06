@@ -14,14 +14,16 @@ const Home = ({ type }) => {
 
   useEffect(() => {
     const fetchVideos = async () => {
-      const res = await axios.get(`/videos/${type}`);
+      const res = await axios.get(`https://youtube-client-o87y.onrender.com/videos/${type}`);
       setVideos(res.data);
     };
     fetchVideos();
   }, [type]);
 
 
-
+ if (!Array.isArray(videos)) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <Container>
