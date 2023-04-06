@@ -19,17 +19,15 @@ const Home = ({ type }) => {
     };
     fetchVideos();
   }, [type]);
-  
-   if(!videos) {
-    return <div>Loading....</div>
-  }
+
 
   return (
     <Container>
-      {videos.map((video) => (
-        <Card key={video._id} video={video} />
-      ))}
-    </Container>
+    {videos && videos.map((video) => (
+      <Card key={video._id} video={video} />
+    ))}
+    {!videos && <div>Loading....</div>}
+  </Container>
   );
 };
 
