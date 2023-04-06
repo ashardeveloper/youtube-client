@@ -21,9 +21,7 @@ const Home = ({ type }) => {
   }, [type]);
 
 
- if (!Array.isArray(videos)) {
-    return <div>Loading...</div>;
-  }
+
 
   return (
     <Container>
