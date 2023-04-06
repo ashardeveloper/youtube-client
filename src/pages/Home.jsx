@@ -21,13 +21,16 @@ const Home = ({ type }) => {
   }, [type]);
 
 
+ if (!Array.isArray(videos)) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <Container>
-    {videos && videos.map((video) => (
-      <Card key={video._id} video={video} />
-    ))}
-    {!videos && <div>Loading....</div>}
-  </Container>
+      {videos.map((video) => (
+        <Card key={video._id} video={video} />
+      ))}
+    </Container>
   );
 };
 
