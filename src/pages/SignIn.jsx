@@ -78,7 +78,7 @@ const SignIn = () => {
     e.preventDefault();
     dispatch(loginStart());
     try {
-      const res = await axios.post("/auth/signin", { name, password });
+      const res = await axios.post("https://youtube-api-6ocf.onrender.com/api/auth/signin", { name, password });
       dispatch(loginSuccess(res.data));
     } catch (err) {
       dispatch(loginFailure());
@@ -90,7 +90,7 @@ const SignIn = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         axios
-          .post("/auth/google", {
+          .post("https://youtube-api-6ocf.onrender.com/api/auth/google", {
             name: result.user.displayName,
             email: result.user.email,
             img: result.user.displayName,
