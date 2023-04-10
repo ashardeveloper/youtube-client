@@ -58,7 +58,7 @@ const Card = ({ type, video }) => {
 
   useEffect(() => {
     const fetchChannel = async () => {
-      const res = await axios.get(`/users/find/${video.userId}`);
+      const res = await axios.get(`https://youtube-api-6ocf.onrender.com/api/users/find/${video.userId}`);
       setChannel(res.data);
     };
     fetchChannel();
@@ -78,7 +78,7 @@ const Card = ({ type, video }) => {
             <Title>{video.title}</Title>
             <ChannelName>{channel.name}</ChannelName>
             <Info>
-              {video.views} • {format(video.createdAt)}
+              {video.views} views • {format(video.createdAt)}
             </Info>
           </Texts>
         </Details>
