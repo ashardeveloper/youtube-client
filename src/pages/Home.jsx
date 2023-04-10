@@ -21,7 +21,8 @@ const Home = ({ type }) => {
     fetchVideos();
   }, [type]);
 
-  {!videos && <div>Loading...</div>}
+  if(!videos)
+    return <div>Loading...</div>
 
   return (
     <Container>
