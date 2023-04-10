@@ -14,7 +14,7 @@ const Home = ({ type }) => {
 
   useEffect(() => {
     const fetchVideos = async () => {
-      const res = await axios.get(`https://youtube-client-o87y.onrender.com/videos/${type}`);
+      const res = await axios.get(`/videos/${type}`);
       console.log(res.data); 
       setVideos(res.data);
     };
