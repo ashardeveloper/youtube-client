@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { loginFailure, loginStart, loginSuccess } from "../redux/userSlice.js";
 import { auth, provider } from "../firebase.js";
 import { signInWithPopup } from "firebase/auth";
+import Cookies from 'js-cookie';
 
 const Container = styled.div`
   display: flex;
