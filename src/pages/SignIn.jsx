@@ -5,7 +5,6 @@ import styled from "styled-components";
 import { loginFailure, loginStart, loginSuccess } from "../redux/userSlice.js";
 import { auth, provider } from "../firebase.js";
 import { signInWithPopup } from "firebase/auth";
-import Cookies from 'js-cookie';
 
 const Container = styled.div`
   display: flex;
@@ -80,8 +79,7 @@ const SignIn = () => {
     dispatch(loginStart());
     try {
       const res = await axios.post("https://youtube-api-6ocf.onrender.com/api/auth/signin", { name, password });
-      const { access_token } = res.data;
-      Cookies.set("access_token", access_token, { expires: 1 });
+      console.log(res.data);
       dispatch(loginSuccess(res.data));
     } catch (err) {
       dispatch(loginFailure());
@@ -99,8 +97,7 @@ const SignIn = () => {
             img: result.user.displayName,
           })
           .then((res) => {
-          const { access_token } = res.data;
-          Cookies.set("access_token", access_token, { expires: 1 });
+            console.log(res.data);
             dispatch(loginSuccess(res.data));
           });
       })
@@ -151,3 +148,4 @@ const SignIn = () => {
 };
 
 export default SignIn;
+
