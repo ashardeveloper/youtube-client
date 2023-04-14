@@ -81,7 +81,7 @@ const SignIn = () => {
     try {
       const res = await axios.post("https://youtube-api-6ocf.onrender.com/api/auth/signin", { name, password });
       const { access_token } = res.data;
-       Cookies.set('access_token', res.data.accessToken);
+      Cookies.set("access_token", access_token, { expires: 1 });
       dispatch(loginSuccess(res.data));
     } catch (err) {
       dispatch(loginFailure());
@@ -99,6 +99,8 @@ const SignIn = () => {
             img: result.user.displayName,
           })
           .then((res) => {
+          const { access_token } = res.data;
+          Cookies.set("access_token", access_token, { expires: 1 });
             dispatch(loginSuccess(res.data));
           });
       })
