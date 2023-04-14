@@ -80,6 +80,7 @@ const SignIn = () => {
     dispatch(loginStart());
     try {
       const res = await axios.post("https://youtube-api-6ocf.onrender.com/api/auth/signin", { name, password });
+      const { access_token } = res.data;
        Cookies.set('access_token', res.data.accessToken);
       dispatch(loginSuccess(res.data));
     } catch (err) {
